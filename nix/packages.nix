@@ -1,6 +1,8 @@
 {
   lib,
+  pkg-config,
   rustPlatform,
+  sqlite,
 }:
 
 let
@@ -23,6 +25,9 @@ rec {
 
     cargoLock.lockFile = ../Cargo.lock;
     buildAndTestSubdir = "crates/bridge";
+
+    nativeBuildInputs = [ pkg-config ];
+    buildInputs = [ sqlite ];
 
     meta = {
       description = "FCM to UnifiedPush relay server";

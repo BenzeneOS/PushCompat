@@ -75,6 +75,7 @@
         {
           packages = import ./nix/packages.nix {
             inherit lib;
+            inherit (pkgs) pkg-config sqlite;
             rustPlatform = rustPlatformFor system;
           };
           devShell = import ./nix/dev-shell.nix {
